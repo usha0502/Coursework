@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Matching site</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="../static/css/matchme.min.css" rel="stylesheet">
+</head>
+<body>
+    {% load static %}
+  <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+  <header class="masthead">
+    <div class=" d-flex h-75 align-items-center">
+      <div class="mx-auto text-center topp">
+        <p class="text-white-50 mx-auto wordsizereg">Create an Account</p>
+        <br>
+        <br>
+        <form method="POST" action="/registerinfo/" enctype='multipart/form-data'>
+          {% csrf_token %}
+          <br>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">First Name:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" name="firstname" id="first_name" placeholder="First Name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Surname:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" name="secondname" class="form-control" id="second_name"
+                placeholder="Second Name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Gender:</label>
+            <div class="col-sm-6">
+              <select class="form-control selcls" id="gender" name="gender" placeholder="Gender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Date Of Birth:</label>
+            <div class="col-sm-6">
+              <input type='date' name="dob" class="form-control" id="datepicker" placeholder="Date_of_birth">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Email:</label>
+            <div class="col-sm-6">
+              <input type='email' name="email" class="form-control" id="email" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Username:</label>
+            <div class="col-sm-6">
+              <input type='text' name="username" class="form-control" id="username" placeholder="Username">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Password:</label>
+            <div class="col-sm-6">
+              <input type="password" name="pass" id="password" placeholder="Password" class="form-control">
+            </div>
+          </div>
+          <hr>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Select hobies:</label>
+            <br>
+            <div class="center">
+              <input type="checkbox" name="hobbies" id="football" value="1"> Football<br>
+              <input type="checkbox" name="hobbies" id="dancing" value="2"> Dancing<br>
+              <input type="checkbox" name="hobbies" id="hockey" value="3"> Hockey<br>
+              <input type="checkbox" name="hobbies" id="rugby" value="4"> Rugby<br>
+              <input type="checkbox" name="hobbies" id="ice_skating" value="5"> Ice skating<br>
+              <input type="checkbox" name="hobbies" id="tennis" value="6"> Tennis<br>
+            </div>
+          </div>
+          <div class="col-sm-30 text-center ">
+            <button type="submit" class="btn btn-primary">Create</button>
+          </div>
+        </form>
+ <script src="../static/vendor/jquery/jquery.min.js"></script>
+ <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+</body>
+</html>

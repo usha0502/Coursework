@@ -1,0 +1,192 @@
+/*!
+ * Start Bootstrap - Grayscale v5.0.2 (https://startbootstrap.com/template-overviews/grayscale)
+ * Copyright 2013-2018 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-grayscale/blob/master/LICENSE)
+ */
+
+
+ .masthead {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 22, 22, 0.1)), color-stop(75%, rgba(22, 22, 22, 0.5)), to(#161616)), url("../img/match.png");
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.1) 0%, rgba(22, 22, 22, 0.5) 75%, #161616 100%), url("../img/match.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.masthead h1 {
+  font-family: 'Varela Round';
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.8rem;
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.masthead h2 {
+  max-width: 20rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .masthead h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .masthead {
+    height: 100vh;
+    padding: 0;
+  }
+  .masthead h1 {
+    font-size: 6.5rem;
+    line-height: 6.5rem;
+    letter-spacing: 0.8rem;
+  }
+  .masthead h2 {
+    max-width: 30rem;
+    font-size: 1.25rem;
+  }
+}
+
+.btn {
+  -webkit-box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  font-family: 'Varela Round';
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  border: 0;
+}
+
+.btn-primary {
+  background-color: #edc393;
+}
+
+.btn-primary:hover {
+  background-color: #edc393;
+}
+
+.btn-primary:focus {
+  background-color: #edc393;
+  color: white;
+}
+
+.btn-primary:active {
+  background-color: #edc393 !important;
+}
+
+.underline{
+  text-decoration: underline;
+}
+.wordsize {
+  font-size: 30px;
+}
+.wordsizeNav {
+  font-size: 20px;
+}
+.center {
+  margin: 20px;
+  width: 60%;
+  text-align-last: left;
+}
+.play_button {
+  top: 20%;
+  left: 50%;
+}
+.wordsizereg {
+  font-size: 40px;
+}
+.topp {
+  margin-top: 80px;
+}
+.topedit{
+  margin-top: 85px;
+}
+.wordsizelogin{
+  font-size: 40px;
+}
+.moveDown{
+margin-top: 80px;
+}
+.moveDownNav{
+margin-top: 35px;
+
+}
+
+.moveRight{
+margin-right: 100px;
+}
+.boldwriting{
+font-weight: bold;
+}
+  Profile Pic Start*/
+   .picture-container {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+  }
+  .picture {
+    width: 106px;
+    height: 106px;
+    background-image: url("match.png");
+    border: 4px solid #CCCCCC;
+    color: #FFFFFF;
+    border-radius: 50%;
+    margin: 0px auto;
+    overflow: hidden;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+  }
+  .picture:hover {
+    border-color: black;
+  }
+  .picture input[type="file"] {
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0 !important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .picture-src {
+    width: 100%;
+  } 
+  .carouselDown{
+    margin-top: 10px;
+  }
+  .cc{
+    position: relative;
+    left: 20px;
+  }
+  .topright {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    font-size: 12px;
+  }
+  
+  .navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: #4285F4;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #4285F4;
+    }
+}

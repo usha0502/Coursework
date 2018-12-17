@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Matching site</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="../static/css/matchme.min.css" rel="stylesheet">
+</head>
+
+<body>
+    {% load static %}
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+        <a class="navbar-brand" href="#"><strong>MatchMe</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse wordsizeNav" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="/navigation/"> Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link " href="/view_profile/"> View Profile </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  " href="/edit_profile/"> Edit Profile </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/matched_users/"> Matched Users <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header class="masthead">
+            <a href="/logout/" class="btn btn-primary topright">Log out</a>
+            <div class= "container">
+                <p class="text-white-50 mx-auto wordsizelogin movematchedup "> </p>
+                <p class="text-white-50 mx-auto mt-4 mb-5 wordsizelogin ">Matched Users</p>
+                <p class="text-white">Here is a list of all of the users that you have matched with... </p>
+                <table style="width:150%" class="movematchedleft w-100" id="users">
+                    <tr>
+                        <th class="col-sm-20 col-form-label text-white boldwriting wordsizetwenty">Username </th>
+                        <th class="col-sm-20 col-form-label text-white boldwriting wordsizetwenty"> Gender</th>
+                        <th class="col-sm-20 col-form-label text-white boldwriting wordsizetwenty"> Age</th>
+                    </tr>
+                    {% for user in users %}
+                    <tr>
+                        <td class="col-sm-40 col-form-label text-white "><a href="{% url 'view_profiles' %}?uview={{ user.username }}">{{ user.username }}</td>
+                        <td class="col-sm-40 col-form-label text-white ">{{ user.gender }}</td>
+                        <td class="col-sm-40 col-form-label text-white ">{{ user.dob }}</td>
+                    </tr>
+                    {% endfor%}
+
+                </table>
+                <form>
+                {% csrf_token %}
+
+                    <label class="col-sm-4 col-form-label text-white boldwriting">Filter your results here:</label>
+
+                    <label class="text-white"><input type="radio" name="gender" value="M" checked> Male<br>
+                    <label class="text-white"><input type="radio" name="gender" value="F"> Female<br>
+                        <hr>
+                    <input id="filter" type="button" value="filter" class="btn btn-primary">
+                  </form>
+                </div>
+
+
+        <script src="../static/vendor/jquery/jquery.min.js"></script>
+        <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+  $("#filter").click(function () {
+    var gender = $('input[name=gender]:checked').val();
+
+  $.ajax({
+    url: '/filter/',
+    type: 'POST',
+    data: {
+    'gender':gender,
+  },
+
+    success: function (data) {
+      console.log(data)
+      var old = document.getElementById('users')
+      old.remove()
+      var tablename = "users"
+      var tableclassname = "col-sm-40 col-form-label text-white"
+      var width = "60%"
+      $("#update").append("<div id=" + tablename + "><table class=tableclassname " + " width = "+ width +"><tr><th>Username:</th><th>Gender:</th><th>DOB:</th></tr><tr><td>" + data + " </table></div>")
+      for(var i=0; i<data.matched.length;i++){
+          //  $("#users").append("<tr id =" + data.matched[i].username + "><td><a href=" {% url 'view_profiles' %}?uview= + data.matched[i].username ">" + data.matched[i].username + "</td><td>" + data.matched[i].gender + "</td><td>" + data.matched[i].dob + "</td></tr>")
+               }
+             }
+
+  })
+
+});
+  </script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Matching site</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="../static/css/matchme.min.css" rel="stylesheet">
+</head>
+<body>
+    {% load static %}
+  <header class="masthead">
+    <div class=" d-flex h-75 align-items-center">
+      <div class="mx-auto text-center">
+        <p class="text-white-50 mx-auto wordsizelogin">Log in</p>
+        <form method="POST" action="/login/">
+          {% load static %}
+          {% csrf_token %}
+          <div class="form-group">
+            <!-- <label for="username">Username:</label> -->
+            <input type="username" class="form-control" name="username" id="username" placeholder="Enter Username">
+          </div>
+          <div class="form-group">
+            <!-- <label for="password">Password:</label> -->
+            <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Sign in</button>
+          <br>
+          <br>
+          <div class="mt-2">
+            <a href="/forgot_password/" class="text-white-50 mx-auto mt-10 mb-5 underline"> Forgot your password?</a>
+            <br>
+            <a href="/register/" class="text-white-50 mx-auto mt-10 mb-5 underline"> Don't have an account? Click
+              here </a>
+          </div>
+      </div>
+    </div>
+    </form>
+  </header>
+  <script src="../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+ 
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Matching site</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="../static/css/matchme.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+    {% load static %}
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+        <a class="navbar-brand" href="#"><strong>MatchMe</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse wordsizeNav" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="/navigation/"> Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link " href="/view_profile/"> View Profile <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  " href="/edit_profile/"> Edit Profile </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/matched_users/"> Matched Users </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header class="masthead">
+        <a href="/logout/" class="btn btn-primary topright">Log out</a>
+        <div class=" d-flex h-75 align-items-center">
+            <div class="mx-auto text-center ">
+                <p class="text-white-50 mx-auto wordsizelogin moveDown ">Profiles</p>
+
+                <form method="POST" action="/registerinfo/" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <div class="picture-container">
+                        <div class="picture">
+                            <img src="{{ img.url }}" class="picture-src" id="wizardPicturePreview" name="profilepic"></img>
+                        </div>
+
+                    </div>
+                    <br>
+
+                    <div class="form-group row">
+                        <label class="col-sm-15 col-form-label text-white boldwriting">Username: {{ username }}</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-15 col-form-label text-white boldwriting">Gender: {{ gender }}</label>
+                        <div class="col-sm-8">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-15 col-form-label text-white boldwriting">DOB: {{ dob }}</label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-15 col-form-label text-white boldwriting">Description: {{ description }}</label>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label class="col-sm-15 col-form-label text-white boldwriting">Hobbies:</label>
+                        <br>
+                        {% for hobby in hobbies %}
+                            <label class="col-sm-6 col-form-label text-white boldwriting"> {{ hobby }} </label><br>
+                        {% endfor %}
+                    </div>
+
+            </div>
+            <a href="{% url 'fav' %}?uview={{ username }}" class="btn btn-primary">Favorite {{ username }}</a>
+
+
+
+            </form>
+
+            <script src="../static/vendor/jquery/jquery.min.js"></script>
+            <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+</script>
+</body>
+
+</html>
